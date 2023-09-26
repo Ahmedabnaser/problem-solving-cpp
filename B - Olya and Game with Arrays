@@ -1,0 +1,34 @@
+#include <bits/stdc++.h>
+#define Fast ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
+#define tc int t; cin >> t; while(t--)
+#define ll long long
+using namespace std;
+
+int main() {
+    Fast
+    tc{
+        ll mn3,mn4=1e9+5;
+        ll sumOF_min_sec=0;
+        ll mn1=1e9+5,mn;
+        int q;cin>>q;
+        while (q--){
+            int n;cin>>n;
+            int arr[n];
+            for (ll i = 0; i < n; ++i) {
+                cin>>arr[i];
+            }
+            sort(arr,arr+n);
+            mn3=arr[1];
+            mn= *min_element(arr,arr+n);
+            mn1=min(mn,mn1);//i have  the minimum element
+            // now we want the sum of all the second elements
+            sumOF_min_sec+=arr[1];
+            //now we find the second small elements
+            mn4=min(mn3,mn4);
+        }
+       //solution
+       cout<<mn1+sumOF_min_sec-mn4<<"\n";
+    }
+
+    return 0;
+}
